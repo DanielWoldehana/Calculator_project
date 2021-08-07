@@ -2,6 +2,9 @@
 
 let currentOperator;
 let clicked = false;
+
+// extract operators selected by user
+
 function setOperator(op, id) {
   clicked = !clicked;
   console.log(clicked);
@@ -15,23 +18,28 @@ function setOperator(op, id) {
   }
 }
 
+// get the total of the 2 inputs
+
 function totalSum() {
-  let total = document.querySelector("#total");
-  total.classList.add("totalStyle");
-  total.classList.remove("none");
   let num1 = document.querySelector("#input1").value;
   let num2 = document.querySelector("#input2").value;
-  if (isNaN(num1) || isNaN(num2) || currentOperator == null) {
-    alert("please input numbers only, select operator");
-  } else if (num1 == "") {
-    num1 = 0;
-    console.log(eval(`${num1}${currentOperator}${num2}`));
-  } else if (num2 == "") {
-    num2 = 0;
-    console.log(eval(`${num1}${currentOperator}${num2}`));
+  if (
+    isNaN(num1) ||
+    isNaN(num2) ||
+    currentOperator == null ||
+    num1 == "" ||
+    num2 == ""
+  ) {
+    alert("please input numbers only, fill both fields and select an operator");
+  } else {
+    let total = document.querySelector("#total");
+    total.classList.add("totalStyle");
+    total.classList.remove("none");
+    total.innerHTML = eval(`${num1}${currentOperator}${num2}`);
   }
-  total.innerHTML = eval(`${num1}${currentOperator}${num2}`);
 }
+
+// clear all feilds
 
 function clearSum() {
   document.querySelector("#input1").value = "";
@@ -41,7 +49,9 @@ function clearSum() {
   total.classList.add("none");
 }
 
-// increment logic starts here
+// counter program
+
+// increment logic
 
 let num = 0;
 
@@ -52,16 +62,18 @@ function increment() {
   count.innerHTML = num;
 }
 
+// decrement logic
 function decrement() {
   num -= 1;
   let count = document.querySelector("#counter");
   count.innerHTML = num;
 }
 
+// clear all counter
+
 function clearNum() {
-  num = 0;
   let count = document.querySelector("#counter");
-  count.innerHTML = num;
+  count.innerHTML = 0;
 }
 
 // Math game starts here
@@ -70,6 +82,8 @@ let operators = ["+", "-", "*", "/"];
 let rand1v = 0;
 let randOpv = "";
 let rand2v = 0;
+
+// functions to return 2 random numbers and a random operator
 
 let rand1 = () => {
   let num = Math.floor(Math.random() * 15 + 2);
@@ -90,6 +104,8 @@ let rand2 = () => {
 let newQ = true;
 let mathQuestion = `${rand1()} ${randOp()} ${rand2()} = ?`;
 
+// check to see if the input answers is correct or wrong
+
 function correct() {
   let resultCheck = document.querySelector("#answerCheck");
   resultCheck.innerHTML = "Correct";
@@ -104,6 +120,7 @@ function wrong() {
   resultCheck.classList.add("btn", "btn-danger");
 }
 
+//  generate new random question
 function question() {
   let resultCheck = document.querySelector("#answerCheck");
   resultCheck.classList.add("none");
@@ -119,6 +136,8 @@ function question() {
     q.innerHTML = mathQuestion;
   }
 }
+
+// show the user if their inputed answer is correct
 
 function resultChecker() {
   console.log(rand1v, randOpv, rand2v);
