@@ -17,7 +17,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <div class="container calculator">
+    <div class="container-sm calculator">
       <h1>Calculator</h1>
       <div>
         <input
@@ -66,9 +66,12 @@
           class="input2"
           onfocus="this.value=''"
         />
-        <button class="btn btn-dark" type="submit" onclick="total()">=</button>
+        <button class="btn btn-dark" type="submit" onclick="totalSum()">
+          =
+        </button>
         <span id="total" class="btn-dark"></span>
       </div>
+      <button class="btn btn-dark" onclick="clearSum()">clear</button>
     </div>
 
     <!-- counter starts here -->

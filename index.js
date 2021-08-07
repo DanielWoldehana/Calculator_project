@@ -15,9 +15,10 @@ function setOperator(op, id) {
   }
 }
 
-function total() {
+function totalSum() {
   let total = document.querySelector("#total");
   total.classList.add("totalStyle");
+  total.classList.remove("none");
   let num1 = document.querySelector("#input1").value;
   let num2 = document.querySelector("#input2").value;
   if (isNaN(num1) || isNaN(num2) || currentOperator == null) {
@@ -30,6 +31,14 @@ function total() {
     console.log(eval(`${num1}${currentOperator}${num2}`));
   }
   total.innerHTML = eval(`${num1}${currentOperator}${num2}`);
+}
+
+function clearSum() {
+  document.querySelector("#input1").value = "";
+  document.querySelector("#input2").value = "";
+
+  let total = document.querySelector("#total");
+  total.classList.add("none");
 }
 
 // increment logic starts here
