@@ -27,38 +27,40 @@
           class="input1"
           onfocus="this.value=''"
         />
-        <button
-          class="btn btn-dark"
-          type="submit"
-          id="plusOp"
-          onclick="setOperator('+', id)"
-        >
-          +
-        </button>
-        <button
-          class="btn btn-dark"
-          type="submit"
-          id="minusOp"
-          onclick="setOperator('-', id)"
-        >
-          -
-        </button>
-        <button
-          class="btn btn-dark"
-          type="submit"
-          id="timesOp"
-          onclick="setOperator('*', id)"
-        >
-          *
-        </button>
-        <button
-          class="btn btn-dark"
-          type="submit"
-          id="divideOp"
-          onclick="setOperator('/', id)"
-        >
-          /
-        </button>
+        <div class="operators text-center">
+          <button
+            class="btn btn-dark"
+            type="submit"
+            id="plusOp"
+            onclick="setOperator(this, '+', id)"
+          >
+            +
+          </button>
+          <button
+            class="btn btn-dark"
+            type="submit"
+            id="minusOp"
+            onclick="setOperator(this, '-', id)"
+          >
+            -
+          </button>
+          <button
+            class="btn btn-dark"
+            type="submit"
+            id="timesOp"
+            onclick="setOperator(this, '*', id)"
+          >
+            *
+          </button>
+          <button
+            class="btn btn-dark"
+            type="submit"
+            id="divideOp"
+            onclick="setOperator(this, '/', id)"
+          >
+            /
+          </button>
+        </div>
         <input
           type="text"
           name="input2"
@@ -66,11 +68,9 @@
           class="input2"
           onfocus="this.value=''"
         />
-        <button class="btn btn-dark" type="submit" onclick="totalSum()">
-          =
-        </button>
-        <span id="total" class="btn-dark"></span>
       </div>
+      <button class="btn btn-dark" type="submit" onclick="totalSum()">=</button>
+      <span id="total" class="btn-dark result none text-center"></span>
       <button class="btn btn-dark" onclick="clearSum()">clear</button>
     </div>
 

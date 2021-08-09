@@ -4,18 +4,17 @@ let currentOperator;
 let clicked = false;
 
 // extract operators selected by user
+// toggle operator classes onClick
 
-function setOperator(op, id) {
-  clicked = !clicked;
-  console.log(clicked);
+function setOperator(el, op, id) {
   currentOperator = op;
-  if (clicked) {
-    document.querySelector(`#${id}`).classList.remove("btn-dark");
-    document.querySelector(`#${id}`).classList.add("btn-secondary");
-  } else {
-    document.querySelector(`#${id}`).classList.remove("btn-secondary");
-    document.querySelector(`#${id}`).classList.add("btn-dark");
+  let childOperator = document.querySelector(".operators").children;
+
+  for (let i = 0; i < childOperator.length; i++) {
+    console.log(childOperator[i]);
+    childOperator[i].className = "btn btn-dark";
   }
+  el.className = "btn btn-primary";
 }
 
 // get the total of the 2 inputs

@@ -10,9 +10,11 @@ body {
   margin: 2px;
 }
 .totalStyle {
-  padding: 10px;
-  margin-left: 5px;
   border-radius: 5px;
+  min-width: 61.5px;
+  min-height: 38px;
+  text-align: center;
+  padding-top: 1%;
 }
 
 .calculator,
@@ -27,6 +29,7 @@ body {
   align-content: space-around;
   max-width: 650px !important;
 }
+
 .none {
   display: none !important;
 }
